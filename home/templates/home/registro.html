@@ -6,7 +6,38 @@
     <form method="post">
         {% csrf_token %}
 
-        <!-- Campo DNI -->
+        <!-- Campos de usuario -->
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Usuario:</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_password1" class="form-label">Contraseña:</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.password1.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_password2" class="form-label">Confirmar Contraseña:</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campos de empleado -->
         <div class="mb-3">
             <label for="id_dni_empl" class="form-label">DNI:</label>
             {{ form.dni_empl }}
@@ -17,7 +48,6 @@
             {% endif %}
         </div>
 
-        <!-- Campo Nombre -->
         <div class="mb-3">
             <label for="id_nombre_empl" class="form-label">Nombre:</label>
             {{ form.nombre_empl }}
@@ -28,7 +58,6 @@
             {% endif %}
         </div>
 
-        <!-- Campo Apellido -->
         <div class="mb-3">
             <label for="id_apellido_empl" class="form-label">Apellido:</label>
             {{ form.apellido_empl }}
@@ -39,7 +68,6 @@
             {% endif %}
         </div>
 
-        <!-- Campo Domicilio -->
         <div class="mb-3">
             <label for="id_domicilio_empl" class="form-label">Domicilio:</label>
             {{ form.domicilio_empl }}
@@ -50,7 +78,6 @@
             {% endif %}
         </div>
 
-        <!-- Campo Teléfono -->
         <div class="mb-3">
             <label for="id_telefono_empl" class="form-label">Teléfono:</label>
             {{ form.telefono_empl }}
@@ -61,7 +88,6 @@
             {% endif %}
         </div>
 
-        <!-- Campo Correo -->
         <div class="mb-3">
             <label for="id_correo_empl" class="form-label">Correo Electrónico:</label>
             {{ form.correo_empl }}
@@ -72,7 +98,6 @@
             {% endif %}
         </div>
 
-        <!-- Campo Rango -->
         <div class="mb-3">
             <label for="id_rango_emp" class="form-label">Rango:</label>
             {{ form.rango_emp }}
