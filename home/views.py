@@ -1,8 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from empleados.forms import EmpleadoForm  # Importa el formulario desde la app empleados
-from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 from empleados.models import Empleados
 from django.contrib.auth import authenticate, login
@@ -10,9 +7,6 @@ from django.contrib import messages
 
 def base(request):
     return render(request, "home/base.html")
-
-def login(request):
-    return render (request, "home/login.html")
 
 def login_view(request):
     if request.method == 'POST':
