@@ -1,0 +1,89 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Registrar Empleado</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Campo DNI -->
+        <div class="mb-3">
+            <label for="id_dni_empl" class="form-label">DNI:</label>
+            {{ form.dni_empl }}
+            {% if form.dni_empl.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.dni_empl.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Nombre -->
+        <div class="mb-3">
+            <label for="id_nombre_empl" class="form-label">Nombre:</label>
+            {{ form.nombre_empl }}
+            {% if form.nombre_empl.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.nombre_empl.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Apellido -->
+        <div class="mb-3">
+            <label for="id_apellido_empl" class="form-label">Apellido:</label>
+            {{ form.apellido_empl }}
+            {% if form.apellido_empl.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.apellido_empl.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Domicilio -->
+        <div class="mb-3">
+            <label for="id_domicilio_empl" class="form-label">Domicilio:</label>
+            {{ form.domicilio_empl }}
+            {% if form.domicilio_empl.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.domicilio_empl.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Teléfono -->
+        <div class="mb-3">
+            <label for="id_telefono_empl" class="form-label">Teléfono:</label>
+            {{ form.telefono_empl }}
+            {% if form.telefono_empl.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.telefono_empl.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Correo -->
+        <div class="mb-3">
+            <label for="id_correo_empl" class="form-label">Correo Electrónico:</label>
+            {{ form.correo_empl }}
+            {% if form.correo_empl.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.correo_empl.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Rango -->
+        <div class="mb-3">
+            <label for="id_rango_emp" class="form-label">Rango:</label>
+            {{ form.rango_emp }}
+            {% if form.rango_emp.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.rango_emp.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+{% endblock %}

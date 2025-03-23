@@ -1,0 +1,12 @@
+/* Estilos personalizados */
+.card {
+    border-radius: 10px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    border-radius: 5px;
+}
