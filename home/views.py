@@ -4,9 +4,15 @@ from django.contrib.auth.models import User
 from empleados.models import Empleados
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.contrib.auth import logout
 
 def base(request):
     return render(request, "home/base.html")
+
+def logout_view(request):
+    logout(request)  # Cierra la sesión del usuario
+    messages.success(request, 'Has cerrado sesión correctamente.')  # Mensaje de confirmación
+    return redirect('base')  # Redirige a la página principal
 
 def login_view(request):
     if request.method == 'POST':
@@ -15,6 +21,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, f'¡Bienvenido, {username}!')
             return redirect('base')  # Redirige a la página principal después del login
         else:
             messages.error(request, 'Usuario o contraseña incorrectos.')
@@ -45,6 +52,7 @@ def registro(request):
     else:
         form = EmpleadoForm()
     return render(request, 'home/registro.html', {'form': form})
+
 
 
 
