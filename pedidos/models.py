@@ -1,13 +1,13 @@
 from django.db import models
-from Mesas.models import Mesas
-from Cajas.models import Caja
-from Ventas.models import Ventas
-from Empleados.models import Empleados
-from Productos.models import Productos
+from mesas.models import Mesa
+from cajas.models import Caja
+from ventas.models import Ventas
+from empleados.models import Empleados
+from productos.models import Productos
 
 class Pedidos(models.Model):
     id_pedido = models.AutoField(primary_key=True)
-    id_mesa = models.ForeignKey(Mesas, on_delete=models.SET_NULL, null=True, db_column='id_mesa')
+    id_mesa = models.ForeignKey(Mesa, on_delete=models.SET_NULL, null=True, db_column='id_mesa')
     id_caja = models.ForeignKey(Caja, on_delete=models.SET_NULL, null=True, db_column='id_caja')
     id_venta = models.ForeignKey(Ventas, on_delete=models.SET_NULL, null=True, db_column='id_venta')
     id_empl = models.ForeignKey(Empleados, on_delete=models.SET_NULL, null=True, db_column='id_empl')
